@@ -1,10 +1,11 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
-import Guitar from './Guitar';
-import Banjo from './Banjo';
-import Mandolin from './Mandolin';
-import Ukulele from './Ukulele';
+import Home from './screens/HomePage';
+import Guitar from './screens/GuitarPage';
+import Banjo from './screens/BanjoPage';
+import Mandolin from './screens/MandolinPage';
+import Ukulele from './screens/UkulelePage';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -40,6 +41,7 @@ function MyTabs() {
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
       })}>
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Guitar" component={Guitar} />
       <Tab.Screen name="Banjo" component={Banjo} />
       <Tab.Screen name="Mandolin" component={Mandolin} />
