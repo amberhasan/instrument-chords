@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import Guitar from './Guitar';
@@ -8,24 +8,33 @@ import Ukulele from './Ukulele';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createMaterialBottomTabNavigator();
+
 function MyTabs() {
+  const getTabBarIconName = routeName => {
+    switch (routeName) {
+      case 'Guitar':
+        return 'guitar';
+      case 'Banjo':
+        return 'banjo';
+      case 'Mandolin':
+        return 'music';
+      case 'Ukulele':
+        return 'ukulele';
+      default:
+        return null;
+    }
+  };
+
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) => {
-          let iconName;
+          const iconName = getTabBarIconName(route.name);
 
-          if (route.name === 'Guitar') {
-            iconName = 'guitar-acoustic';
-          } else if (route.name === 'Banjo') {
-            iconName = 'guitar';
-          } else if (route.name === 'Mandolin') {
-            iconName = 'guitar';
-          } else if (route.name === 'Ukulele') {
-            iconName = 'guitar';
+          if (!iconName) {
+            return null;
           }
 
-          // You can return any component that you like here!
           return <FontAwesome5 name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: 'tomato',
