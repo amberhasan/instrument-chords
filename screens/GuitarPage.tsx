@@ -1,25 +1,47 @@
 import * as React from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import Button from '../components/Button';
+import InstrumentCard from '../components/InstrumentCard';
 
 function Guitar() {
   return (
     <ScrollView>
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <View style={{flexDirection: 'row'}}>
-          <Button title="A Chords" onPress={() => {}} />
-          <Button title="B Chords" onPress={() => {}} />
+          <InstrumentCard
+            note={'A Major'}
+            imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
+          />
+          <InstrumentCard
+            note={'B Major'}
+            imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
+          />
         </View>
         <View style={{flexDirection: 'row'}}>
-          <Button title="C Chords" onPress={() => {}} />
-          <Button title="D Chords" onPress={() => {}} />
+          <InstrumentCard
+            note={'C Major'}
+            imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
+          />
+          <InstrumentCard
+            note={'D Major'}
+            imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
+          />
         </View>
         <View style={{flexDirection: 'row'}}>
-          <Button title="E Chords" onPress={() => {}} />
-          <Button title="F Chords" onPress={() => {}} />
+          <InstrumentCard
+            note={'E Major'}
+            imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
+          />
+          <InstrumentCard
+            note={'F Major'}
+            imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
+          />
         </View>
         <View style={{flexDirection: 'row'}}>
-          <Button title="G Chords" onPress={() => {}} />
+          <InstrumentCard
+            note={'G Major'}
+            imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
+          />
         </View>
       </View>
     </ScrollView>

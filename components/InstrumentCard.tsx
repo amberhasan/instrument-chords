@@ -1,19 +1,16 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-interface HomeCardProps {
-  instrument: string;
-  onPress: () => void;
+interface InstrumentCardProps {
+  note: string;
+  imageSource: any;
 }
 
-function HomeCard({instrument, onPress}: HomeCardProps) {
+function InstrumentCard({note, imageSource}: InstrumentCardProps) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <Text style={styles.title}>{instrument}</Text>
-      <Image
-        source={require('../assets/images/guitar.png')}
-        style={styles.image}
-      />
+    <TouchableOpacity style={styles.card}>
+      <Text style={styles.title}>{note}</Text>
+      <Image source={imageSource} style={styles.image} />
     </TouchableOpacity>
   );
 }
@@ -36,11 +33,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   image: {
-    width: 200,
-    height: 200,
+    width: 100,
+    height: 100,
     resizeMode: 'contain',
     alignSelf: 'center',
   },
 });
 
-export default HomeCard;
+export default InstrumentCard;
