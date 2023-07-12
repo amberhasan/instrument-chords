@@ -1,39 +1,37 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import HomeCard from '../components/HomeCard';
+import {DATA} from './data';
 
 function Home() {
   const navigation = useNavigation();
 
-  const handleCardPress = instrument => {
-    navigation.navigate(instrument);
+  const handleCardPress = (instrument: string) => {
+    navigation.navigate('InstrumentPage', {
+      instrumentType: instrument,
+      chordData: DATA[instrument],
+    });
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <TouchableOpacity
-          style={styles.card}
-          onPress={() => handleCardPress('Guitar')}>
-          <Text style={styles.title}>Guitar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.card}
-          onPress={() => handleCardPress('Banjo')}>
-          <Text style={styles.title}>Banjo</Text>
-        </TouchableOpacity>
+        <HomeCard
+          instrument="Guitar"
+          onPress={() => handleCardPress('Guitar')}
+        />
+        <HomeCard instrument="Banjo" onPress={() => handleCardPress('Banjo')} />
       </View>
       <View style={styles.row}>
-        <TouchableOpacity
-          style={styles.card}
-          onPress={() => handleCardPress('Mandolin')}>
-          <Text style={styles.title}>Mandolin</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.card}
-          onPress={() => handleCardPress('Ukulele')}>
-          <Text style={styles.title}>Ukulele</Text>
-        </TouchableOpacity>
+        <HomeCard
+          instrument="Mandolin"
+          onPress={() => handleCardPress('Mandolin')}
+        />
+        <HomeCard
+          instrument="Ukulele"
+          onPress={() => handleCardPress('Ukulele')}
+        />
       </View>
     </View>
   );
