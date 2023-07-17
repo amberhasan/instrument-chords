@@ -8,10 +8,10 @@ interface InstrumentCardProps {
 
 const InstrumentCard: React.FC<InstrumentCardProps> = ({note, imageSource}) => {
   return (
-    <TouchableOpacity style={styles.card}>
+    <View style={styles.card}>
       <Text style={styles.title}>{note}</Text>
       <Image source={imageSource} style={styles.image} />
-    </TouchableOpacity>
+    </View>
   );
 };
 

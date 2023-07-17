@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import HomePage from './screens/HomePage';
 import InstrumentPage from './screens/InstrumentPage';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,12 +30,12 @@ function MyStack() {
       <Stack.Screen
         name="HomePage"
         component={HomePage}
-        options={{headerTitle: 'Home Page'}}
+        options={{headerTitle: 'Home'}}
       />
       <Stack.Screen
         name="InstrumentPage"
         component={InstrumentPage}
-        options={({route}) => ({
+        options={({route, navigation}) => ({
           headerTitle: getHeaderTitle(route),
         })}
       />
@@ -49,3 +50,11 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  backButton: {
+    marginLeft: 10,
+    fontSize: 16,
+    color: '#000000',
+  },
+});
