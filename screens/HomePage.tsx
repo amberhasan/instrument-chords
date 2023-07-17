@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, SafeAreaView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import HomeCard from '../components/HomeCard';
 import {DATA} from './data';
@@ -15,7 +15,7 @@ function Home() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.row}>
         <HomeCard
           instrument="Guitar"
@@ -33,21 +33,21 @@ function Home() {
           onPress={() => handleCardPress('Ukulele')}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
+    backgroundColor: '#F5F5F5', // Set your desired background color here
   },
   row: {
+    paddingTop: 10, // Add padding from the top of the screen
+    paddingBottom: 10, // Add padding from the top of the screen
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    paddingHorizontal: 20, // Add horizontal padding
   },
 });
 

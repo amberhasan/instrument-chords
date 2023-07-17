@@ -23,11 +23,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderRadius: 10,
     padding: 20,
-    marginBottom: 20,
+    marginBottom: 10,
+    marginHorizontal: 10, // Add padding between the cards
+    marginLeft: 10, // Add left padding
+    marginRight: 10, // Add right padding
     shadowColor: '#000000',
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 5,
+    shadowOpacity: 0.8, // Increase the shadow opacity
+    shadowRadius: 10,
+    elevation: 10, // Increase the elevation
   },
   title: {
     fontSize: 20,
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   image: {
-    width: 200,
+    width: 100,
     height: 200,
     resizeMode: 'contain',
     alignSelf: 'center',

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {View, Text, ScrollView, FlatList} from 'react-native';
+import {View, Text, ScrollView, FlatList, StyleSheet} from 'react-native';
 import Button from '../components/Button';
 import InstrumentCard from '../components/InstrumentCard';
 import {SegmentedButtons} from 'react-native-paper';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
 function InstrumentPage(props) {
   const chordData = props.route.params.chordData;
@@ -50,7 +50,7 @@ function InstrumentPage(props) {
   const renderView = () => {
     if (value === 'major') {
       return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.listOfChords}>
           <FlatList
             data={DATA}
             renderItem={({item}) => (
@@ -77,8 +77,9 @@ function InstrumentPage(props) {
   };
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaProvider style={{flex: 1}}>
       <SegmentedButtons
+        style={styles.segmentedButtons}
         value={value}
         onValueChange={setValue}
         buttons={[
@@ -94,8 +95,22 @@ function InstrumentPage(props) {
         ]}
       />
       {renderView()}
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  segmentedButtons: {
+    paddingTop: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  listOfChords: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+});
 
 export default InstrumentPage;
