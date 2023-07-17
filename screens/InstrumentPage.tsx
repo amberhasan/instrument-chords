@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, FlatList} from 'react-native';
 import Button from '../components/Button';
 import InstrumentCard from '../components/InstrumentCard';
 import {SegmentedButtons} from 'react-native-paper';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 function InstrumentPage(props) {
   const chordData = props.route.params.chordData;
@@ -15,47 +16,50 @@ function InstrumentPage(props) {
   //   console.log('value', value);
   // }, [value]);
 
+  const DATA = [
+    {
+      note: 'A Major',
+      imageSource: require('../assets/images/guitar_chords/g_major_guitar.png'),
+    },
+    {
+      note: 'B Major',
+      imageSource: require('../assets/images/guitar_chords/g_major_guitar.png'),
+    },
+    {
+      note: 'C Major',
+      imageSource: require('../assets/images/guitar_chords/g_major_guitar.png'),
+    },
+    {
+      note: 'D Major',
+      imageSource: require('../assets/images/guitar_chords/g_major_guitar.png'),
+    },
+    {
+      note: 'E Major',
+      imageSource: require('../assets/images/guitar_chords/g_major_guitar.png'),
+    },
+    {
+      note: 'F Major',
+      imageSource: require('../assets/images/guitar_chords/g_major_guitar.png'),
+    },
+    {
+      note: 'G Major',
+      imageSource: require('../assets/images/guitar_chords/g_major_guitar.png'),
+    },
+  ];
+
   const renderView = () => {
     if (value === 'major') {
       return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <View style={{flexDirection: 'row'}}>
-            <InstrumentCard
-              note={'A Major'}
-              imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
-            />
-            <InstrumentCard
-              note={'B Major'}
-              imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
-            />
-          </View>
-          <View style={{flexDirection: 'row'}}>
-            <InstrumentCard
-              note={'C Major'}
-              imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
-            />
-            <InstrumentCard
-              note={'D Major'}
-              imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
-            />
-          </View>
-          <View style={{flexDirection: 'row'}}>
-            <InstrumentCard
-              note={'E Major'}
-              imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
-            />
-            <InstrumentCard
-              note={'F Major'}
-              imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
-            />
-          </View>
-          <View style={{flexDirection: 'row'}}>
-            <InstrumentCard
-              note={'G Major'}
-              imageSource={require('../assets/images/guitar_chords/g_major_guitar.png')}
-            />
-          </View>
-        </View>
+        <SafeAreaView>
+          <FlatList
+            data={DATA}
+            renderItem={({item}) => (
+              <InstrumentCard note={item.note} imageSource={item.imageSource} />
+            )}
+            horizontal={false}
+            numColumns={2}
+          />
+        </SafeAreaView>
       );
     } else if (value === 'minor') {
       return (
@@ -73,7 +77,7 @@ function InstrumentPage(props) {
   };
 
   return (
-    <ScrollView>
+    <SafeAreaView style={{flex: 1}}>
       <SegmentedButtons
         value={value}
         onValueChange={setValue}
@@ -90,7 +94,7 @@ function InstrumentPage(props) {
         ]}
       />
       {renderView()}
-    </ScrollView>
+    </SafeAreaView>
   );
 }
 

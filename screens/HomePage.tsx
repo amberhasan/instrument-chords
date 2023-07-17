@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import HomeCard from '../components/HomeCard';
 import {DATA} from './data';
@@ -7,7 +7,7 @@ import {DATA} from './data';
 function Home() {
   const navigation = useNavigation();
 
-  const handleCardPress = (instrument: string) => {
+  const handleCardPress = instrument => {
     navigation.navigate('InstrumentPage', {
       instrumentType: instrument,
       chordData: DATA[instrument],
@@ -48,21 +48,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 20,
-  },
-  card: {
-    backgroundColor: '#ffffff',
-    borderRadius: 10,
-    padding: 20,
-    shadowColor: '#000000',
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 5,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    textAlign: 'center',
   },
 });
 
