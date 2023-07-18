@@ -1,11 +1,20 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
 import {NavigationContainer} from '@react-navigation/native';
 import HomePage from './screens/HomePage';
 import InstrumentPage from './screens/InstrumentPage';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import GuitarTuner from './screens/GuitarTuner';
+import BanjoTuner from './screens/BanjoTuner';
+import MandolinTuner from './screens/MandolinTuner';
+import UkuleleTuner from './screens/UkuleleTuner';
 
 const Stack = createNativeStackNavigator();
+
+const Tab = createBottomTabNavigator();
 
 function getHeaderTitle(route) {
   const instrumentType = route.params?.instrumentType;
@@ -24,7 +33,7 @@ function getHeaderTitle(route) {
   }
 }
 
-function MyStack() {
+function Tab1Stack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -43,10 +52,51 @@ function MyStack() {
   );
 }
 
+function Tab2Stack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="HomePage"
+        component={HomePage}
+        options={{headerTitle: 'Home2'}}
+      />
+      <Stack.Screen
+        name="GuitarTuner"
+        component={GuitarTuner}
+        options={{headerTitle: 'Guitar Tuner'}}
+      />
+      <Stack.Screen
+        name="BanjoTuner"
+        component={BanjoTuner}
+        options={{headerTitle: 'Banjo Tuner'}}
+      />
+      <Stack.Screen
+        name="MandolinTuner"
+        component={MandolinTuner}
+        options={{headerTitle: 'Mandolin Tuner'}}
+      />
+      <Stack.Screen
+        name="UkuleleTuner"
+        component={UkuleleTuner}
+        options={{headerTitle: 'Ukulele Tuner'}}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function MyTabs() {
+  return (
+    <Tab.Navigator screenOptions={{headerShown: false}}>
+      <Tab.Screen name="Tab1Stack" component={Tab1Stack} />
+      <Tab.Screen name="Tab2Stack" component={Tab2Stack} />
+    </Tab.Navigator>
+  );
+}
+
 export default function App() {
   return (
     <NavigationContainer>
-      <MyStack />
+      <MyTabs />
     </NavigationContainer>
   );
 }
