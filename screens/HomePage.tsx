@@ -4,14 +4,35 @@ import {useNavigation} from '@react-navigation/native';
 import HomeCard from '../components/HomeCard';
 import {DATA} from './data';
 
-function Home() {
+function Home(props) {
   const navigation = useNavigation();
+  const tabClicked = props.route.params.tabClicked;
+  console.log('tabClicked', tabClicked);
 
   const handleCardPress = instrument => {
-    navigation.navigate('InstrumentPage', {
-      instrumentType: instrument,
-      chordData: DATA[instrument],
-    });
+    if (tabClicked === 'tab1') {
+      navigation.navigate('InstrumentPage', {
+        instrumentType: instrument,
+        chordData: DATA[instrument],
+      });
+    } else {
+      switch (instrument) {
+        case 'Guitar':
+          navigation.navigate('GuitarTuner');
+          break;
+        case 'Banjo':
+          navigation.navigate('BanjoTuner');
+          break;
+        case 'Mandolin':
+          navigation.navigate('MandolinTuner');
+          break;
+        case 'Ukulele':
+          navigation.navigate('UkuleleTuner');
+          break;
+        default:
+          navigation.navigate('GuitarTuner');
+      }
+    }
   };
 
   return (

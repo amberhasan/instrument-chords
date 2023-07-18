@@ -40,6 +40,7 @@ function Tab1Stack() {
         name="HomePage"
         component={HomePage}
         options={{headerTitle: 'Home'}}
+        initialParams={{tabClicked: 'tab1'}}
       />
       <Stack.Screen
         name="InstrumentPage"
@@ -59,6 +60,7 @@ function Tab2Stack() {
         name="HomePage"
         component={HomePage}
         options={{headerTitle: 'Home2'}}
+        initialParams={{tabClicked: 'tab2'}}
       />
       <Stack.Screen
         name="GuitarTuner"
@@ -86,7 +88,7 @@ function Tab2Stack() {
 
 function MyTabs() {
   return (
-    <Tab.Navigator screenOptions={{headerShown: false}}>
+    <Tab.Navigator screenOptions={{headerShown: false, unmountOnBlur: true}}>
       <Tab.Screen name="Tab1Stack" component={Tab1Stack} />
       <Tab.Screen name="Tab2Stack" component={Tab2Stack} />
     </Tab.Navigator>
