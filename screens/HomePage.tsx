@@ -7,11 +7,10 @@ import {DATA} from './data';
 function Home(props) {
   const navigation = useNavigation();
   const tabClicked = props.route.params.tabClicked;
-  console.log('tabClicked', tabClicked);
 
   const handleCardPress = instrument => {
     if (tabClicked === 'tab1') {
-      navigation.navigate('InstrumentPage', {
+      navigation.navigate('MyTabs', {
         instrumentType: instrument,
         chordData: DATA[instrument],
       });
@@ -41,17 +40,24 @@ function Home(props) {
         <HomeCard
           instrument="Guitar"
           onPress={() => handleCardPress('Guitar')}
+          tabClicked={tabClicked}
         />
-        <HomeCard instrument="Banjo" onPress={() => handleCardPress('Banjo')} />
+        <HomeCard
+          instrument="Banjo"
+          onPress={() => handleCardPress('Banjo')}
+          tabClicked={tabClicked}
+        />
       </View>
       <View style={styles.row}>
         <HomeCard
           instrument="Mandolin"
           onPress={() => handleCardPress('Mandolin')}
+          tabClicked={tabClicked}
         />
         <HomeCard
           instrument="Ukulele"
           onPress={() => handleCardPress('Ukulele')}
+          tabClicked={tabClicked}
         />
       </View>
     </SafeAreaView>
@@ -62,6 +68,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5F5F5', // Set your desired background color here
+    justifyContent: 'center',
   },
   row: {
     paddingTop: 10, // Add padding from the top of the screen

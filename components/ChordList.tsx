@@ -21,10 +21,13 @@ const ChordList = props => {
 
 const styles = StyleSheet.create({
   listOfChords: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
+    flex: 1,
+    // paddingTop: 20,
+    // paddingBottom: 20,
+    // paddingLeft: 20,
+    // paddingRight: 20,
+    backgroundColor: 'red',
+    // ma
   },
 });
 export default ChordList;

@@ -17,9 +17,10 @@ const InstrumentCard: React.FC<InstrumentCardProps> = ({note, imageSource}) => {
 
 const styles = StyleSheet.create({
   card: {
+    flex: 1,
     backgroundColor: '#ffffff',
     borderRadius: 10,
-    padding: 20,
+    // padding: 20,
     marginHorizontal: 10,
     marginBottom: 20,
     shadowColor: '#000000',
@@ -37,9 +38,9 @@ const styles = StyleSheet.create({
     color: '#333333',
   },
   image: {
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
+    width: '100%',
+    height: '100%',
+    resizeMode: 'center',
   },
 });
 

@@ -6,11 +6,13 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import HomePage from './screens/HomePage';
 import InstrumentPage from './screens/InstrumentPage';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, Button} from 'react-native';
 import GuitarTuner from './screens/GuitarTuner';
 import BanjoTuner from './screens/BanjoTuner';
 import MandolinTuner from './screens/MandolinTuner';
 import UkuleleTuner from './screens/UkuleleTuner';
+
+const HomeStack = createNativeStackNavigator();
 
 const Stack = createNativeStackNavigator();
 
@@ -33,64 +35,137 @@ function getHeaderTitle(route) {
   }
 }
 
-function Tab1Stack() {
+function HomeStackScreen() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
+    <HomeStack.Navigator>
+      <HomeStack.Screen
         name="HomePage"
         component={HomePage}
         options={{headerTitle: 'Home'}}
         initialParams={{tabClicked: 'tab1'}}
       />
+      <HomeStack.Screen
+        name="MyTabs"
+        component={MyTabs}
+        options={{headerTitle: 'Home', headerShown: false}}
+        initialParams={{tabClicked: 'tab1'}}
+      />
+    </HomeStack.Navigator>
+  );
+}
+
+function Tab1Stack({route}) {
+  const {chordData, instrumentType} = route.params;
+  return (
+    <Stack.Navigator>
       <Stack.Screen
         name="InstrumentPage"
         component={InstrumentPage}
         options={({route, navigation}) => ({
           headerTitle: getHeaderTitle(route),
+          headerLeft: () => (
+            <Button title="Back" onPress={() => navigation.pop()} />
+          ),
         })}
+        initialParams={{
+          chordData,
+          instrumentType,
+        }}
       />
     </Stack.Navigator>
   );
 }
 
-function Tab2Stack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="HomePage"
-        component={HomePage}
-        options={{headerTitle: 'Home2'}}
-        initialParams={{tabClicked: 'tab2'}}
-      />
-      <Stack.Screen
-        name="GuitarTuner"
-        component={GuitarTuner}
-        options={{headerTitle: 'Guitar Tuner'}}
-      />
-      <Stack.Screen
-        name="BanjoTuner"
-        component={BanjoTuner}
-        options={{headerTitle: 'Banjo Tuner'}}
-      />
-      <Stack.Screen
-        name="MandolinTuner"
-        component={MandolinTuner}
-        options={{headerTitle: 'Mandolin Tuner'}}
-      />
-      <Stack.Screen
-        name="UkuleleTuner"
-        component={UkuleleTuner}
-        options={{headerTitle: 'Ukulele Tuner'}}
-      />
-    </Stack.Navigator>
-  );
+function Tab2Stack({route}) {
+  const {chordData, instrumentType} = route.params;
+  function getTunerScreen() {
+    switch (instrumentType) {
+      case 'Guitar':
+        return (
+          <Stack.Screen
+            name="GuitarTuner"
+            component={GuitarTuner}
+            options={({route, navigation}) => ({
+              headerTitle: 'Guitar Tuner',
+              headerLeft: () => (
+                <Button title="Back" onPress={() => navigation.pop()} />
+              ),
+            })}
+          />
+        );
+      case 'Banjo':
+        return (
+          <Stack.Screen
+            name="BanjoTuner"
+            component={BanjoTuner}
+            options={{headerTitle: 'Banjo Tuner'}}
+          />
+        );
+      case 'Mandolin':
+        return (
+          <Stack.Screen
+            name="MandolinTuner"
+            component={MandolinTuner}
+            options={{headerTitle: 'Mandolin Tuner'}}
+          />
+        );
+      case 'Ukulele':
+        return (
+          <Stack.Screen
+            name="UkuleleTuner"
+            component={UkuleleTuner}
+            options={{headerTitle: 'Ukulele Tuner'}}
+          />
+        );
+    }
+  }
+  return <Stack.Navigator>{getTunerScreen()}</Stack.Navigator>;
 }
 
-function MyTabs() {
+function MyTabs({route}) {
+  // const chordData = route.params.chordData;
+  // const instrumentType = route.params.instrumentType;
+  const {chordData, instrumentType} = route.params;
+  console.log({
+    chordData,
+    instrumentType,
+  });
   return (
-    <Tab.Navigator screenOptions={{headerShown: false, unmountOnBlur: true}}>
-      <Tab.Screen name="Tab1Stack" component={Tab1Stack} />
-      <Tab.Screen name="Tab2Stack" component={Tab2Stack} />
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        // tabBarActiveBackgroundColor: 'purple',
+        // tabBarInactiveBackgroundColor: 'pink',
+        unmountOnBlur: true,
+        tabBarIcon: () => null,
+        // tabBarItemStyle: {
+        //   backgroundColor: 'red',
+        // },
+        // tabBarLabelStyle: {
+        //   alignSelf: 'center',
+        //   padding: 0,
+        //   paddingBottom: 0,
+        //   fontSize: 16,
+        //   // backgroundColor: 'grey',
+        //   // color: 'orange',
+        // }, // Align the tab labels in the center
+      }}>
+      <Tab.Screen
+        name="Chords"
+        component={Tab1Stack}
+        initialParams={{
+          chordData,
+          instrumentType,
+        }}
+      />
+      <Tab.Screen
+        name="Tuning"
+        component={Tab2Stack}
+        initialParams={{
+          chordData,
+          instrumentType,
+        }}
+      />
     </Tab.Navigator>
   );
 }
@@ -98,7 +173,7 @@ function MyTabs() {
 export default function App() {
   return (
     <NavigationContainer>
-      <MyTabs />
+      <HomeStackScreen />
     </NavigationContainer>
   );
 }
