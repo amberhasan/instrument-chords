@@ -64,7 +64,7 @@ function Tab1Stack({route}) {
         options={({route, navigation}) => ({
           headerTitle: getHeaderTitle(route),
           headerLeft: () => (
-            <Button title="Back" onPress={() => navigation.pop()} />
+            <Button title="< Home" onPress={() => navigation.pop()} />
           ),
         })}
         initialParams={{
@@ -88,7 +88,7 @@ function Tab2Stack({route}) {
             options={({route, navigation}) => ({
               headerTitle: 'Guitar Tuner',
               headerLeft: () => (
-                <Button title="Back" onPress={() => navigation.pop()} />
+                <Button title="< Home" onPress={() => navigation.pop()} />
               ),
             })}
           />
@@ -98,7 +98,12 @@ function Tab2Stack({route}) {
           <Stack.Screen
             name="BanjoTuner"
             component={BanjoTuner}
-            options={{headerTitle: 'Banjo Tuner'}}
+            options={({route, navigation}) => ({
+              headerTitle: 'Banjo Tuner',
+              headerLeft: () => (
+                <Button title="< Home" onPress={() => navigation.pop()} />
+              ),
+            })}
           />
         );
       case 'Mandolin':
@@ -106,7 +111,12 @@ function Tab2Stack({route}) {
           <Stack.Screen
             name="MandolinTuner"
             component={MandolinTuner}
-            options={{headerTitle: 'Mandolin Tuner'}}
+            options={({route, navigation}) => ({
+              headerTitle: 'Mandolin Tuner',
+              headerLeft: () => (
+                <Button title="< Home" onPress={() => navigation.pop()} />
+              ),
+            })}
           />
         );
       case 'Ukulele':
@@ -114,7 +124,12 @@ function Tab2Stack({route}) {
           <Stack.Screen
             name="UkuleleTuner"
             component={UkuleleTuner}
-            options={{headerTitle: 'Ukulele Tuner'}}
+            options={({route, navigation}) => ({
+              headerTitle: 'Ukulele Tuner',
+              headerLeft: () => (
+                <Button title="< Home" onPress={() => navigation.pop()} />
+              ),
+            })}
           />
         );
     }
