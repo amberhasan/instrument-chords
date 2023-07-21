@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     // paddingBottom: 20,
     // paddingLeft: 20,
     // paddingRight: 20,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     // ma
   },
 });

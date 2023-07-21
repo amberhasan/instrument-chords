@@ -15,6 +15,7 @@
 		7699B88040F8A987B510C191 /* libPods-InstrumentChords-InstrumentChordsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-InstrumentChords-InstrumentChordsTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A99A96672A5DC1DB0024B2C6 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = A99A96662A5DC1DB0024B2C6 /* Fonts */; };
+		A9CE2CCF2A6AE7AB00748E40 /* guitar_tuner in Resources */ = {isa = PBXBuildFile; fileRef = A9CE2CCE2A6AE7AB00748E40 /* guitar_tuner */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = InstrumentChords/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-InstrumentChords-InstrumentChordsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstrumentChords-InstrumentChordsTests.release.xcconfig"; path = "Target Support Files/Pods-InstrumentChords-InstrumentChordsTests/Pods-InstrumentChords-InstrumentChordsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A99A96662A5DC1DB0024B2C6 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
+		A9CE2CCE2A6AE7AB00748E40 /* guitar_tuner */ = {isa = PBXFileReference; lastKnownFileType = folder; name = guitar_tuner; path = ../../../Desktop/guitar_tuner; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 		13B07FAE1A68108700A75B9A /* InstrumentChords */ = {
 			isa = PBXGroup;
 			children = (
+				A9CE2CCE2A6AE7AB00748E40 /* guitar_tuner */,
 				A99A96662A5DC1DB0024B2C6 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99A96672A5DC1DB0024B2C6 /* Fonts in Resources */,
+				A9CE2CCF2A6AE7AB00748E40 /* guitar_tuner in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
