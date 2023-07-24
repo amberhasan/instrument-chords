@@ -18,6 +18,7 @@ import BanjoTuner from './screens/BanjoTuner';
 import MandolinTuner from './screens/MandolinTuner';
 import UkuleleTuner from './screens/UkuleleTuner';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -159,25 +160,20 @@ function Tab2Stack({route}) {
 
 function MyTabs({route}) {
   const {chordData, instrumentType} = route.params;
-  console.log({
-    chordData,
-    instrumentType,
-  });
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
         headerShown: false,
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
-          console.log('route.name', route.name);
           if (route.name === 'Chords') {
-            iconName = focused
-              ? 'ios-information-circle'
-              : 'ios-information-circle-outline';
+            iconName = 'tune-vertical';
           } else if (route.name === 'Tuning') {
-            iconName = focused ? 'ios-list' : 'ios-list-outline';
+            iconName = 'tune-variant';
           }
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return (
+            <MaterialCommunityIcons name={iconName} size={size} color={color} />
+          );
         },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',

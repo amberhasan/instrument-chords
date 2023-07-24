@@ -2,6 +2,7 @@ import {Platform} from 'react-native';
 import Sound from 'react-native-sound';
 
 function playSound(soundPath: string | undefined) {
+  console.log('Hello');
   if (Platform.OS === 'android') {
     soundPath = soundPath?.split('/')[1];
   }

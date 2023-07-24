@@ -6,6 +6,8 @@ import React, {
   View,
   TouchableOpacity,
 } from 'react-native';
+import {playSound} from '../utils/playSound';
+import TunerButton from '../components/TunerButton';
 
 function MandolinTuner() {
   return (
@@ -20,36 +22,44 @@ function MandolinTuner() {
             justifyContent: 'space-between',
           }}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <TouchableOpacity style={styles.button}>
-              <Text>D</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text>G</Text>
-            </TouchableOpacity>
+            <TunerButton
+              title="D"
+              onPress={() => playSound('mandolin_tuner/b_mandolin.m4a')}
+            />
+            <TunerButton
+              title="G"
+              onPress={() => playSound('mandolin_tuner/g_mandolin.m4a')}
+            />
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <TouchableOpacity style={styles.button}>
-              <Text>A</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text>B</Text>
-            </TouchableOpacity>
+            <TunerButton
+              title="A"
+              onPress={() => playSound('mandolin_tuner/a_mandolin.m4a')}
+            />
+            <TunerButton
+              title="E"
+              onPress={() => playSound('mandolin_tuner/e_mandolin.m4a')}
+            />
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <TouchableOpacity style={styles.button}>
-              <Text>D</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text>G</Text>
-            </TouchableOpacity>
+            <TunerButton
+              title="D"
+              onPress={() => playSound('mandolin_tuner/d_mandolin.m4a')}
+            />
+            <TunerButton
+              title="G"
+              onPress={() => playSound('mandolin_tuner/g_mandolin.m4a')}
+            />
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <TouchableOpacity style={styles.button}>
-              <Text>A</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text>B</Text>
-            </TouchableOpacity>
+            <TunerButton
+              title="A"
+              onPress={() => playSound('mandolin_tuner/a_mandolin.m4a')}
+            />
+            <TunerButton
+              title="E"
+              onPress={() => playSound('mandolin_tuner/e_mandolin.m4a')}
+            />
           </View>
         </View>
       </ImageBackground>
