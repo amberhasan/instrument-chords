@@ -109,7 +109,20 @@ function Tab2Stack({route}) {
             options={({route, navigation}) => ({
               headerTitle: 'Guitar Tuner',
               headerLeft: () => (
-                <Button title="< Home" onPress={() => navigation.pop()} />
+                <TouchableOpacity
+                  style={{
+                    height: 32,
+                    width: 32,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                  onPress={() => navigation.pop()}>
+                  <Ionicons
+                    name={Platform.OS === 'ios' ? 'chevron-back' : 'arrow-back'}
+                    size={36}
+                    color={Platform.OS === 'ios' ? '#0075FF' : 'black'}
+                  />
+                </TouchableOpacity>
               ),
             })}
           />
@@ -122,7 +135,20 @@ function Tab2Stack({route}) {
             options={({route, navigation}) => ({
               headerTitle: 'Banjo Tuner',
               headerLeft: () => (
-                <Button title="< Home" onPress={() => navigation.pop()} />
+                <TouchableOpacity
+                  style={{
+                    height: 32,
+                    width: 32,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                  onPress={() => navigation.pop()}>
+                  <Ionicons
+                    name={Platform.OS === 'ios' ? 'chevron-back' : 'arrow-back'}
+                    size={36}
+                    color={Platform.OS === 'ios' ? '#0075FF' : 'black'}
+                  />
+                </TouchableOpacity>
               ),
             })}
           />
@@ -135,7 +161,20 @@ function Tab2Stack({route}) {
             options={({route, navigation}) => ({
               headerTitle: 'Mandolin Tuner',
               headerLeft: () => (
-                <Button title="< Home" onPress={() => navigation.pop()} />
+                <TouchableOpacity
+                  style={{
+                    height: 32,
+                    width: 32,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                  onPress={() => navigation.pop()}>
+                  <Ionicons
+                    name={Platform.OS === 'ios' ? 'chevron-back' : 'arrow-back'}
+                    size={36}
+                    color={Platform.OS === 'ios' ? '#0075FF' : 'black'}
+                  />
+                </TouchableOpacity>
               ),
             })}
           />
@@ -148,7 +187,20 @@ function Tab2Stack({route}) {
             options={({route, navigation}) => ({
               headerTitle: 'Ukulele Tuner',
               headerLeft: () => (
-                <Button title="< Home" onPress={() => navigation.pop()} />
+                <TouchableOpacity
+                  style={{
+                    height: 32,
+                    width: 32,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                  onPress={() => navigation.pop()}>
+                  <Ionicons
+                    name={Platform.OS === 'ios' ? 'chevron-back' : 'arrow-back'}
+                    size={36}
+                    color={Platform.OS === 'ios' ? '#0075FF' : 'black'}
+                  />
+                </TouchableOpacity>
               ),
             })}
           />
