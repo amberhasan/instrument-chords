@@ -6,7 +6,13 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import HomePage from './screens/HomePage';
 import InstrumentPage from './screens/InstrumentPage';
-import {StyleSheet, Text, TouchableOpacity, Button} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Button,
+  Platform,
+} from 'react-native';
 import GuitarTuner from './screens/GuitarTuner';
 import BanjoTuner from './screens/BanjoTuner';
 import MandolinTuner from './screens/MandolinTuner';
@@ -71,10 +77,13 @@ function Tab1Stack({route}) {
                 width: 32,
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: 'red',
               }}
               onPress={() => navigation.pop()}>
-              <Ionicons name="arrow-back" size={32} color="black" />
+              <Ionicons
+                name={Platform.OS === 'ios' ? 'chevron-back' : 'arrow-back'}
+                size={36}
+                color={Platform.OS === 'ios' ? '#0075FF' : 'black'}
+              />
             </TouchableOpacity>
           ),
         })}
@@ -149,8 +158,6 @@ function Tab2Stack({route}) {
 }
 
 function MyTabs({route}) {
-  // const chordData = route.params.chordData;
-  // const instrumentType = route.params.instrumentType;
   const {chordData, instrumentType} = route.params;
   console.log({
     chordData,
@@ -158,24 +165,23 @@ function MyTabs({route}) {
   });
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({route}) => ({
         headerShown: false,
-        // tabBarActiveBackgroundColor: 'purple',
-        // tabBarInactiveBackgroundColor: 'pink',
-        unmountOnBlur: true,
-        tabBarIcon: () => null,
-        // tabBarItemStyle: {
-        //   backgroundColor: 'red',
-        // },
-        // tabBarLabelStyle: {
-        //   alignSelf: 'center',
-        //   padding: 0,
-        //   paddingBottom: 0,
-        //   fontSize: 16,
-        //   // backgroundColor: 'grey',
-        //   // color: 'orange',
-        // }, // Align the tab labels in the center
-      }}>
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName;
+          console.log('route.name', route.name);
+          if (route.name === 'Chords') {
+            iconName = focused
+              ? 'ios-information-circle'
+              : 'ios-information-circle-outline';
+          } else if (route.name === 'Tuning') {
+            iconName = focused ? 'ios-list' : 'ios-list-outline';
+          }
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: 'tomato',
+        tabBarInactiveTintColor: 'gray',
+      })}>
       <Tab.Screen
         name="Chords"
         component={Tab1Stack}
