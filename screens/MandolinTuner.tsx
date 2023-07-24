@@ -10,6 +10,7 @@ import {playSound} from '../utils/playSound';
 import TunerButton from '../components/TunerButton';
 
 function MandolinTuner() {
+  console.log('Hhere?');
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -24,7 +25,7 @@ function MandolinTuner() {
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <TunerButton
               title="D"
-              onPress={() => playSound('mandolin_tuner/b_mandolin.m4a')}
+              onPress={() => playSound('mandolin_tuner/d_mandolin.m4a')}
             />
             <TunerButton
               title="G"

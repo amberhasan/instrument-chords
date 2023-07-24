@@ -6,6 +6,8 @@ import React, {
   View,
   TouchableOpacity,
 } from 'react-native';
+import TunerButton from '../components/TunerButton';
+import {playSound} from '../utils/playSound';
 
 function UkuleleTuner() {
   return (
@@ -20,20 +22,24 @@ function UkuleleTuner() {
             justifyContent: 'space-between',
           }}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <TouchableOpacity style={styles.button}>
-              <Text>D</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text>G</Text>
-            </TouchableOpacity>
+            <TunerButton
+              title="D"
+              onPress={() => playSound('ukulele_tuner/d_ukulele.m4a')}
+            />
+            <TunerButton
+              title="G"
+              onPress={() => playSound('ukulele_tuner/g_ukulele.m4a')}
+            />
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <TouchableOpacity style={styles.button}>
-              <Text>A</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text>B</Text>
-            </TouchableOpacity>
+            <TunerButton
+              title="A"
+              onPress={() => playSound('ukulele_tuner/a_ukulele.m4a')}
+            />
+            <TunerButton
+              title="B"
+              onPress={() => playSound('ukulele_tuner/b_ukulele.m4a')}
+            />
           </View>
         </View>
       </ImageBackground>

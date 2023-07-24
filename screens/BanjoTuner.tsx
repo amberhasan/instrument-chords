@@ -6,6 +6,8 @@ import React, {
   View,
   TouchableOpacity,
 } from 'react-native';
+import TunerButton from '../components/TunerButton';
+import {playSound} from '../utils/playSound';
 
 function BanjoTuner() {
   return (
@@ -20,20 +22,30 @@ function BanjoTuner() {
             justifyContent: 'space-between',
           }}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <TouchableOpacity style={styles.button}>
-              <Text>D</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text>G</Text>
-            </TouchableOpacity>
+            <TunerButton
+              title="D"
+              onPress={() => playSound('banjo_tuner/d_banjo.m4a')}
+            />
+            <TunerButton
+              title="G"
+              onPress={() => playSound('banjo_tuner/low_g_banjo.m4a')}
+            />
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <TouchableOpacity style={styles.button}>
-              <Text>A</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text>B</Text>
-            </TouchableOpacity>
+            <TunerButton
+              title="A"
+              onPress={() => playSound('banjo_tuner/a_banjo.m4a')}
+            />
+            <TunerButton
+              title="B"
+              onPress={() => playSound('banjo_tuner/b_banjo.m4a')}
+            />
+          </View>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <TunerButton
+              title="G"
+              onPress={() => playSound('banjo_tuner/high_g_banjo.m4a')}
+            />
           </View>
         </View>
       </ImageBackground>
