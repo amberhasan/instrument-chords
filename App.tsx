@@ -11,6 +11,7 @@ import GuitarTuner from './screens/GuitarTuner';
 import BanjoTuner from './screens/BanjoTuner';
 import MandolinTuner from './screens/MandolinTuner';
 import UkuleleTuner from './screens/UkuleleTuner';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -64,7 +65,17 @@ function Tab1Stack({route}) {
         options={({route, navigation}) => ({
           headerTitle: getHeaderTitle(route),
           headerLeft: () => (
-            <Button title="< Home" onPress={() => navigation.pop()} />
+            <TouchableOpacity
+              style={{
+                height: 32,
+                width: 32,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'red',
+              }}
+              onPress={() => navigation.pop()}>
+              <Ionicons name="arrow-back" size={32} color="black" />
+            </TouchableOpacity>
           ),
         })}
         initialParams={{

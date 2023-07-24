@@ -1,16 +1,7 @@
-import React, {ImageBackground, StyleSheet, View} from 'react-native';
-import Sound from 'react-native-sound';
+import React from 'react';
+import {ImageBackground, StyleSheet, View} from 'react-native';
 import TunerButton from '../components/TunerButton';
-
-function playSound(soundPath: string) {
-  const sound = new Sound(soundPath, Sound.MAIN_BUNDLE, error => {
-    if (error) {
-      console.log('Failed to load the sound', error);
-      return;
-    }
-    sound.play();
-  });
-}
+import {playSound} from '../utils/playSound';
 
 function GuitarTuner() {
   return (
