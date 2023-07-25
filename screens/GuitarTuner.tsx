@@ -51,9 +51,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containedContainer: {
-    height: 225,
-    marginTop: 80,
+    height: 420,
+    marginTop: 120,
     justifyContent: 'space-between',
+    // backgroundColor: 'red',
+    opacity: 0.5,
+    paddingVertical: 30,
+    paddingHorizontal: 15,
   },
   row: {
     flexDirection: 'row',
