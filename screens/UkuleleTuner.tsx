@@ -24,7 +24,7 @@ function UkuleleTuner() {
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <TunerButton
               title="D"
-              onPress={() => playSound('ukulele_tuner/d_ukulele.m4a')}
+              onPress={() => playSound('ukulele_tuner/c_ukulele.m4a')}
             />
             <TunerButton
               title="G"
@@ -38,7 +38,7 @@ function UkuleleTuner() {
             />
             <TunerButton
               title="B"
-              onPress={() => playSound('ukulele_tuner/b_ukulele.m4a')}
+              onPress={() => playSound('ukulele_tuner/g_ukulele.m4a')}
             />
           </View>
         </View>

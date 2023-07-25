@@ -31,6 +31,9 @@
 		A9FE3E502A6EE6F7002AC544 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9FE3E402A6EE6F7002AC544 /* FontAwesome5_Brands.ttf */; };
 		A9FE3E512A6EE6F7002AC544 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9FE3E412A6EE6F7002AC544 /* FontAwesome5_Regular.ttf */; };
 		A9FE3E522A6EE6F7002AC544 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9FE3E422A6EE6F7002AC544 /* FontAwesome.ttf */; };
+		A9FE3E562A703432002AC544 /* ukulele_tuner in Resources */ = {isa = PBXBuildFile; fileRef = A9FE3E532A703432002AC544 /* ukulele_tuner */; };
+		A9FE3E572A703432002AC544 /* mandolin_tuner in Resources */ = {isa = PBXBuildFile; fileRef = A9FE3E542A703432002AC544 /* mandolin_tuner */; };
+		A9FE3E582A703432002AC544 /* banjo_tuner in Resources */ = {isa = PBXBuildFile; fileRef = A9FE3E552A703432002AC544 /* banjo_tuner */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		A9FE3E402A6EE6F7002AC544 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		A9FE3E412A6EE6F7002AC544 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		A9FE3E422A6EE6F7002AC544 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		A9FE3E532A703432002AC544 /* ukulele_tuner */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ukulele_tuner; sourceTree = "<group>"; };
+		A9FE3E542A703432002AC544 /* mandolin_tuner */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mandolin_tuner; sourceTree = "<group>"; };
+		A9FE3E552A703432002AC544 /* banjo_tuner */ = {isa = PBXFileReference; lastKnownFileType = folder; path = banjo_tuner; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -120,6 +126,9 @@
 		13B07FAE1A68108700A75B9A /* InstrumentChords */ = {
 			isa = PBXGroup;
 			children = (
+				A9FE3E552A703432002AC544 /* banjo_tuner */,
+				A9FE3E542A703432002AC544 /* mandolin_tuner */,
+				A9FE3E532A703432002AC544 /* ukulele_tuner */,
 				A9FE3E322A6EE6AC002AC544 /* Fonts */,
 				A9CE2CCE2A6AE7AB00748E40 /* guitar_tuner */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -305,6 +314,7 @@
 				A9FE3E4E2A6EE6F7002AC544 /* MaterialCommunityIcons.ttf in Resources */,
 				A9FE3E442A6EE6F7002AC544 /* Foundation.ttf in Resources */,
 				A9FE3E452A6EE6F7002AC544 /* Feather.ttf in Resources */,
+				A9FE3E582A703432002AC544 /* banjo_tuner in Resources */,
 				A9FE3E4C2A6EE6F7002AC544 /* FontAwesome5_Solid.ttf in Resources */,
 				A9FE3E502A6EE6F7002AC544 /* FontAwesome5_Brands.ttf in Resources */,
 				A9FE3E512A6EE6F7002AC544 /* FontAwesome5_Regular.ttf in Resources */,
@@ -313,7 +323,9 @@
 				A9FE3E482A6EE6F7002AC544 /* Zocial.ttf in Resources */,
 				A9FE3E4B2A6EE6F7002AC544 /* Fontisto.ttf in Resources */,
 				A9FE3E4A2A6EE6F7002AC544 /* MaterialIcons.ttf in Resources */,
+				A9FE3E572A703432002AC544 /* mandolin_tuner in Resources */,
 				A9FE3E432A6EE6F7002AC544 /* Entypo.ttf in Resources */,
+				A9FE3E562A703432002AC544 /* ukulele_tuner in Resources */,
 				A9FE3E4D2A6EE6F7002AC544 /* Octicons.ttf in Resources */,
 				A9FE3E472A6EE6F7002AC544 /* EvilIcons.ttf in Resources */,
 				A9FE3E4F2A6EE6F7002AC544 /* SimpleLineIcons.ttf in Resources */,

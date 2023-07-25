@@ -24,7 +24,7 @@ function BanjoTuner() {
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <TunerButton
               title="D"
-              onPress={() => playSound('banjo_tuner/d_banjo.m4a')}
+              onPress={() => playSound('banjo_tuner/low_d_banjo.m4a')}
             />
             <TunerButton
               title="G"
