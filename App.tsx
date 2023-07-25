@@ -227,8 +227,21 @@ function MyTabs({route}) {
             <MaterialCommunityIcons name={iconName} size={size} color={color} />
           );
         },
+        tabBarLabelStyle: {
+          fontSize: 15, // Adjust the font size here to make the words bigger
+          fontWeight: 'bold', // You can also apply bold style if needed
+        },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
+        tabBarStyle: {
+          backgroundColor: '#f0f0f0',
+          borderTopWidth: 1, // Add a border at the top of the tabs
+          borderTopColor: '#ccc', // Set the border color here
+        },
+        tabBarItemStyle: {
+          borderRightWidth: 1, // Add a border between the tabs
+          borderRightColor: '#ccc', // Set the border color here
+        },
       })}>
       <Tab.Screen
         name="Chords"

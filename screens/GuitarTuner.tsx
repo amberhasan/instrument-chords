@@ -56,10 +56,12 @@ const styles = StyleSheet.create({
     marginTop: 80,
     justifyContent: 'space-between',
   },
-  row: {flexDirection: 'row', justifyContent: 'space-between'},
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   image: {
-    height: '100%',
-    width: '100%',
+    flex: 1, // This will make the ImageBackground take up the whole screen
   },
   button: {
     height: 30,
@@ -70,4 +72,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
 });
+
 export default GuitarTuner;
