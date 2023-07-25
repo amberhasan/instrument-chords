@@ -1,12 +1,19 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 
 interface HomeCardProps {
   instrument: string;
   onPress: () => void;
   tabClicked: string;
 }
-
+const {height} = Dimensions.get('window');
 function HomeCard({instrument, onPress, tabClicked}: HomeCardProps) {
   let imageSource = require('../assets/images/guitar.png'); // Default image
   if (tabClicked === 'tab1') {
@@ -60,7 +67,7 @@ function HomeCard({instrument, onPress, tabClicked}: HomeCardProps) {
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    height: 300,
+    height: height * 0.4,
     backgroundColor: '#ffffff',
     borderRadius: 10,
     padding: 5,
