@@ -28,18 +28,8 @@ function MandolinTuner() {
               onPress={() => playSound('mandolin_tuner/d_mandolin.m4a')}
             />
             <TunerButton
-              title="G"
-              onPress={() => playSound('mandolin_tuner/g_mandolin.m4a')}
-            />
-          </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <TunerButton
               title="A"
               onPress={() => playSound('mandolin_tuner/a_mandolin.m4a')}
-            />
-            <TunerButton
-              title="E"
-              onPress={() => playSound('mandolin_tuner/e_mandolin.m4a')}
             />
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -48,14 +38,24 @@ function MandolinTuner() {
               onPress={() => playSound('mandolin_tuner/d_mandolin.m4a')}
             />
             <TunerButton
-              title="G"
-              onPress={() => playSound('mandolin_tuner/g_mandolin.m4a')}
+              title="A"
+              onPress={() => playSound('mandolin_tuner/a_mandolin.m4a')}
             />
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <TunerButton
-              title="A"
-              onPress={() => playSound('mandolin_tuner/a_mandolin.m4a')}
+              title="G"
+              onPress={() => playSound('mandolin_tuner/g_mandolin.m4a')}
+            />
+            <TunerButton
+              title="E"
+              onPress={() => playSound('mandolin_tuner/e_mandolin.m4a')}
+            />
+          </View>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <TunerButton
+              title="G"
+              onPress={() => playSound('mandolin_tuner/g_mandolin.m4a')}
             />
             <TunerButton
               title="E"

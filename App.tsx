@@ -1,18 +1,10 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
 import {NavigationContainer} from '@react-navigation/native';
 import HomePage from './screens/HomePage';
 import InstrumentPage from './screens/InstrumentPage';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Button,
-  Platform,
-} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, Platform} from 'react-native';
 import GuitarTuner from './screens/GuitarTuner';
 import BanjoTuner from './screens/BanjoTuner';
 import MandolinTuner from './screens/MandolinTuner';
@@ -21,9 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const HomeStack = createNativeStackNavigator();
-
 const Stack = createNativeStackNavigator();
-
 const Tab = createBottomTabNavigator();
 
 function getHeaderTitle(route) {
@@ -244,16 +234,16 @@ function MyTabs({route}) {
         },
       })}>
       <Tab.Screen
-        name="Chords"
-        component={Tab1Stack}
+        name="Tuning"
+        component={Tab2Stack}
         initialParams={{
           chordData,
           instrumentType,
         }}
       />
       <Tab.Screen
-        name="Tuning"
-        component={Tab2Stack}
+        name="Chords"
+        component={Tab1Stack}
         initialParams={{
           chordData,
           instrumentType,
