@@ -1,14 +1,18 @@
 import React from 'react';
-import {ImageBackground, StyleSheet, View} from 'react-native';
+import {ImageBackground, StyleSheet, View, Dimensions} from 'react-native';
 import TunerButton from '../components/TunerButton';
 import {playSound} from '../utils/playSound';
+
+const {height} = Dimensions.get('window');
 
 function GuitarTuner() {
   return (
     <View style={styles.container}>
       <ImageBackground
         style={styles.image}
-        source={require('../assets/images/tuners/guitar_tuner.png')}>
+        source={require('../assets/images/tuners/guitar_tuner.png')}
+        resizeMode="cover" // Set the resizeMode to 'cover'
+      >
         <View style={styles.containedContainer}>
           <View style={styles.row}>
             <TunerButton
@@ -51,10 +55,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containedContainer: {
-    height: 420,
-    marginTop: 120,
+    height: height * 0.44,
+    marginTop: height * 0.13,
     justifyContent: 'space-between',
-    // backgroundColor: 'red',
+    //  backgroundColor: 'red',
     opacity: 0.5,
     paddingVertical: 30,
     paddingHorizontal: 15,
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   image: {
-    flex: 1, // This will make the ImageBackground take up the whole screen
+    flex: 1,
   },
   button: {
     height: 30,
