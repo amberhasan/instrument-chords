@@ -8,42 +8,49 @@ const {height} = Dimensions.get('window');
 function GuitarTuner() {
   return (
     <View style={styles.container}>
+      {/* Use ImageBackground to set the wood background */}
       <ImageBackground
         style={styles.image}
-        source={require('../assets/images/tuners/guitar_tuner.png')}
-        resizeMode="cover" // Set the resizeMode to 'cover'
-      >
-        <View style={styles.containedContainer}>
-          <View style={styles.row}>
-            <TunerButton
-              title="D"
-              onPress={() => playSound('guitar_tuner/d_guitar.m4a')}
-            />
-            <TunerButton
-              title="G"
-              onPress={() => playSound('guitar_tuner/g_guitar.m4a')}
-            />
-          </View>
-          <View style={styles.row}>
-            <TunerButton
-              title="A"
-              onPress={() => playSound('guitar_tuner/a_guitar.m4a')}
-            />
-            <TunerButton
-              title="B"
-              onPress={() => playSound('guitar_tuner/b_guitar.m4a')}
-            />
-          </View>
-          <View style={styles.row}>
-            <TunerButton
-              title="E"
-              onPress={() => playSound('guitar_tuner/low_e_guitar.m4a')}
-            />
-            <TunerButton
-              title="E"
-              onPress={() => playSound('guitar_tuner/high_e_guitar.m4a')}
-            />
-          </View>
+        source={require('../assets/images/backgrounds/old_wood_texture.jpg')}>
+        <View style={styles.container}>
+          <ImageBackground
+            style={styles.image}
+            source={require('../assets/images/tuners/guitar_tuner.png')}
+            resizeMode="cover" // Set the resizeMode to 'cover'
+          >
+            <View style={styles.containedContainer}>
+              <View style={styles.row}>
+                <TunerButton
+                  title="D"
+                  onPress={() => playSound('guitar_tuner/d_guitar.m4a')}
+                />
+                <TunerButton
+                  title="G"
+                  onPress={() => playSound('guitar_tuner/g_guitar.m4a')}
+                />
+              </View>
+              <View style={styles.row}>
+                <TunerButton
+                  title="A"
+                  onPress={() => playSound('guitar_tuner/a_guitar.m4a')}
+                />
+                <TunerButton
+                  title="B"
+                  onPress={() => playSound('guitar_tuner/b_guitar.m4a')}
+                />
+              </View>
+              <View style={styles.row}>
+                <TunerButton
+                  title="E"
+                  onPress={() => playSound('guitar_tuner/low_e_guitar.m4a')}
+                />
+                <TunerButton
+                  title="E"
+                  onPress={() => playSound('guitar_tuner/high_e_guitar.m4a')}
+                />
+              </View>
+            </View>
+          </ImageBackground>
         </View>
       </ImageBackground>
     </View>
