@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, SafeAreaView} from 'react-native';
+import {View, StyleSheet, SafeAreaView, ImageBackground} from 'react-native'; // Import ImageBackground component
 import {useNavigation} from '@react-navigation/native';
 import HomeCard from '../components/HomeCard';
 import {DATA} from './data';
@@ -35,47 +35,55 @@ function Home(props) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.row}>
-        <HomeCard
-          instrument="Guitar"
-          onPress={() => handleCardPress('Guitar')}
-          tabClicked={tabClicked}
-        />
-        <HomeCard
-          instrument="Banjo"
-          onPress={() => handleCardPress('Banjo')}
-          tabClicked={tabClicked}
-        />
-      </View>
-      <View style={styles.row}>
-        <HomeCard
-          instrument="Mandolin"
-          onPress={() => handleCardPress('Mandolin')}
-          tabClicked={tabClicked}
-        />
-        <HomeCard
-          instrument="Ukulele"
-          onPress={() => handleCardPress('Ukulele')}
-          tabClicked={tabClicked}
-        />
-      </View>
-    </SafeAreaView>
+    // Use ImageBackground instead of SafeAreaView
+    <ImageBackground
+      source={require('../assets/images/backgrounds/old_wood_texture.jpg')}
+      style={styles.backgroundImage}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.row}>
+          <HomeCard
+            instrument="Guitar"
+            onPress={() => handleCardPress('Guitar')}
+            tabClicked={tabClicked}
+          />
+          <HomeCard
+            instrument="Banjo"
+            onPress={() => handleCardPress('Banjo')}
+            tabClicked={tabClicked}
+          />
+        </View>
+        <View style={styles.row}>
+          <HomeCard
+            instrument="Mandolin"
+            onPress={() => handleCardPress('Mandolin')}
+            tabClicked={tabClicked}
+          />
+          <HomeCard
+            instrument="Ukulele"
+            onPress={() => handleCardPress('Ukulele')}
+            tabClicked={tabClicked}
+          />
+        </View>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5', // Set your desired background color here
     justifyContent: 'center',
   },
   row: {
-    paddingTop: 10, // Add padding from the top of the screen
-    paddingBottom: 10, // Add padding from the top of the screen
+    paddingTop: 10,
+    paddingBottom: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 20, // Add horizontal padding
+    paddingHorizontal: 20,
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover', // This will stretch the image to cover the entire container
   },
 });
 

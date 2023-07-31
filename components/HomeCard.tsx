@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
+  ImageBackground,
 } from 'react-native';
 
 interface HomeCardProps {
@@ -54,12 +55,21 @@ function HomeCard({instrument, onPress, tabClicked}: HomeCardProps) {
 
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
-      <Text style={styles.title}>{instrument}</Text>
-      {tabClicked === 'tab1' ? (
-        <Image source={imageSource} style={styles.image} />
-      ) : (
-        <Image source={imageSource} style={styles.image} resizeMode="stretch" />
-      )}
+      <ImageBackground
+        source={require('../assets/images/backgrounds/white_wood_rustic.png')}
+        style={styles.backgroundImage}
+        imageStyle={styles.imageBackground}>
+        <Text style={styles.title}>{instrument}</Text>
+        {tabClicked === 'tab1' ? (
+          <Image source={imageSource} style={styles.image} />
+        ) : (
+          <Image
+            source={imageSource}
+            style={styles.image}
+            resizeMode="stretch"
+          />
+        )}
+      </ImageBackground>
     </TouchableOpacity>
   );
 }
@@ -91,6 +101,14 @@ const styles = StyleSheet.create({
     height: '85%',
     resizeMode: 'contain',
     alignSelf: 'center',
+  },
+  backgroundImage: {
+    flex: 1,
+    borderRadius: 10,
+    overflow: 'hidden', // Ensure that the background image stays within the card boundaries
+  },
+  imageBackground: {
+    resizeMode: 'cover', // This will stretch the image to cover the entire background
   },
 });
 

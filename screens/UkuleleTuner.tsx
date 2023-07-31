@@ -49,7 +49,7 @@ function UkuleleTuner() {
             <TunerButton
               style={{marginRight: width * 0.08}}
               title="B"
-              onPress={() => playSound('ukulele_tuner/g_ukulele.m4a')}
+              onPress={() => playSound('ukulele_tuner/b_ukulele.m4a')}
             />
           </View>
         </View>

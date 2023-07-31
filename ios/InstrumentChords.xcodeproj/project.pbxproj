@@ -587,7 +587,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.amber.InstrumentChords;
+				PRODUCT_BUNDLE_IDENTIFIER = org.amber.StringBar;
 				PRODUCT_NAME = InstrumentChords;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -614,7 +614,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.amber.InstrumentChords;
+				PRODUCT_BUNDLE_IDENTIFIER = org.amber.StringBar;
 				PRODUCT_NAME = InstrumentChords;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
