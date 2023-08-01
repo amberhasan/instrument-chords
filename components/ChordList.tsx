@@ -8,6 +8,8 @@ const ChordList = props => {
   return (
     <SafeAreaView style={styles.listOfChords}>
       <FlatList
+        contentContainerStyle={styles.contentContainer}
+        style={styles.flatList}
         data={chordList}
         renderItem={({item}) => (
           <InstrumentCard note={item.note} imageSource={item.image} />
@@ -21,10 +23,13 @@ const ChordList = props => {
 
 const styles = StyleSheet.create({
   listOfChords: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
+    flex: 1,
+  },
+  flatList: {},
+  contentContainer: {
+    flexGrow: 1,
+
+    marginTop: 10,
   },
 });
 export default ChordList;
