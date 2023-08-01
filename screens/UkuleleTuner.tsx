@@ -28,13 +28,13 @@ function UkuleleTuner() {
                 }}>
                 <TunerButton
                   style={{marginLeft: width * 0.05, marginTop: height * 0.03}}
-                  title="D"
+                  title="C"
                   onPress={() => playSound('ukulele_tuner/c_ukulele.m4a')}
                 />
                 <TunerButton
                   style={{marginRight: width * 0.06, marginTop: height * 0.03}}
-                  title="G"
-                  onPress={() => playSound('ukulele_tuner/g_ukulele.m4a')}
+                  title="E"
+                  onPress={() => playSound('ukulele_tuner/e_ukulele.m4a')}
                 />
               </View>
               <View
@@ -44,13 +44,13 @@ function UkuleleTuner() {
                     marginLeft: width * 0.05,
                     marginBottom: height * 0.03,
                   }}
-                  title="A"
-                  onPress={() => playSound('ukulele_tuner/a_ukulele.m4a')}
+                  title="G"
+                  onPress={() => playSound('ukulele_tuner/g_ukulele.m4a')}
                 />
                 <TunerButton
                   style={{marginRight: width * 0.08}}
-                  title="B"
-                  onPress={() => playSound('ukulele_tuner/b_ukulele.m4a')}
+                  title="A"
+                  onPress={() => playSound('ukulele_tuner/a_ukulele.m4a')}
                 />
               </View>
             </View>
