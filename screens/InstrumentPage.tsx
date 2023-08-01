@@ -9,8 +9,7 @@ import ChordList from '../components/ChordList';
 function InstrumentPage(props) {
   const chordData = props.route.params.chordData;
   const instrumentType = props.route.params.instrumentType;
-  console.log('chordData', chordData);
-  console.log('instrumentType', instrumentType);
+
   const [value, setValue] = React.useState('major');
 
   const renderView = () => {

@@ -1,36 +1,87 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+  ImageBackground,
+} from 'react-native';
 
 interface HomeCardProps {
   instrument: string;
   onPress: () => void;
+  tabClicked: string;
 }
-
-function HomeCard({instrument, onPress}: HomeCardProps) {
+const {height} = Dimensions.get('window');
+function HomeCard({instrument, onPress, tabClicked}: HomeCardProps) {
   let imageSource = require('../assets/images/guitar.png'); // Default image
-
-  if (instrument === 'Banjo') {
-    imageSource = require('../assets/images/banjo.png');
-  } else if (instrument === 'Mandolin') {
-    imageSource = require('../assets/images/mandolin.png');
-  } else if (instrument === 'Ukulele') {
-    imageSource = require('../assets/images/ukulele.png');
+  if (tabClicked === 'tab1') {
+    switch (instrument) {
+      case 'Guitar':
+        imageSource = require('../assets/images/guitar.png');
+        break;
+      case 'Banjo':
+        imageSource = require('../assets/images/banjo.png');
+        break;
+      case 'Mandolin':
+        imageSource = require('../assets/images/mandolin.png');
+        break;
+      case 'Ukulele':
+        imageSource = require('../assets/images/ukulele.png');
+        break;
+      default:
+        imageSource = require('../assets/images/guitar.png');
+    }
+  } else {
+    switch (instrument) {
+      case 'Guitar':
+        imageSource = require('../assets/images/tuners/guitar_tuner.png');
+        break;
+      case 'Banjo':
+        imageSource = require('../assets/images/tuners/banjo_tuner.png');
+        break;
+      case 'Mandolin':
+        imageSource = require('../assets/images/tuners/mandolin_tuner.png');
+        break;
+      case 'Ukulele':
+        imageSource = require('../assets/images/tuners/ukulele_tuner.png');
+        break;
+      default:
+        imageSource = require('../assets/images/tuners/guitar_tuner.png');
+    }
   }
 
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
-      <Text style={styles.title}>{instrument}</Text>
-      <Image source={imageSource} style={styles.image} />
+      <ImageBackground
+        source={require('../assets/images/backgrounds/white_wood_rustic.png')}
+        style={styles.backgroundImage}
+        imageStyle={styles.imageBackground}>
+        <Text style={styles.title}>{instrument}</Text>
+        {tabClicked === 'tab1' ? (
+          <Image source={imageSource} style={styles.image} />
+        ) : (
+          <Image
+            source={imageSource}
+            style={styles.image}
+            resizeMode="stretch"
+          />
+        )}
+      </ImageBackground>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
+    flex: 1,
+    height: height * 0.4,
     backgroundColor: '#ffffff',
     borderRadius: 10,
-    padding: 20,
-    marginBottom: 10,
+    padding: 5,
+    marginVertical: 2.5,
     marginHorizontal: 10,
     marginLeft: 10,
     marginRight: 10,
@@ -47,9 +98,17 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 100,
-    height: 200,
+    height: '85%',
     resizeMode: 'contain',
     alignSelf: 'center',
+  },
+  backgroundImage: {
+    flex: 1,
+    borderRadius: 10,
+    overflow: 'hidden', // Ensure that the background image stays within the card boundaries
+  },
+  imageBackground: {
+    resizeMode: 'cover', // This will stretch the image to cover the entire background
   },
 });
 

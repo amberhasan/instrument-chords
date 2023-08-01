@@ -10,16 +10,19 @@ const InstrumentCard: React.FC<InstrumentCardProps> = ({note, imageSource}) => {
   return (
     <View style={styles.card}>
       <Text style={styles.title}>{note}</Text>
-      <Image source={imageSource} style={styles.image} />
+
+      <Image source={imageSource} style={styles.image} resizeMode="contain" />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
+    flex: 1,
+    height: 180,
     backgroundColor: '#ffffff',
     borderRadius: 10,
-    padding: 20,
+    // padding: 20,
     marginHorizontal: 10,
     marginBottom: 20,
     shadowColor: '#000000',
@@ -37,9 +40,9 @@ const styles = StyleSheet.create({
     color: '#333333',
   },
   image: {
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
+    width: '100%',
+    height: 130,
+    // resizeMode: 'capnmtao',
   },
 });
 
