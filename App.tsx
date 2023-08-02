@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import HomePage from './screens/HomePage';
-import InstrumentPage from './screens/InstrumentPage';
+import ChordsPage from './screens/ChordsPage';
 import {StyleSheet, Text, TouchableOpacity, Platform} from 'react-native';
 import GuitarTuner from './screens/GuitarTuner';
 import BanjoTuner from './screens/BanjoTuner';
@@ -57,8 +57,8 @@ function Tab1Stack({route}) {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="InstrumentPage"
-        component={InstrumentPage}
+        name="ChordsPage"
+        component={ChordsPage}
         options={({route, navigation}) => ({
           headerTitle: getHeaderTitle(route),
           headerLeft: () => (

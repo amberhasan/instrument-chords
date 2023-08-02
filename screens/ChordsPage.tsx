@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {View, Text, ScrollView, FlatList, StyleSheet} from 'react-native';
 import Button from '../components/Button';
-import InstrumentCard from '../components/InstrumentCard';
+import ChordCard from '../components/ChordCard';
 import {SegmentedButtons} from 'react-native-paper';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import ChordList from '../components/ChordList';
 
-function InstrumentPage(props) {
+function ChordsPage(props) {
   const chordData = props.route.params.chordData;
   const instrumentType = props.route.params.instrumentType;
 
@@ -53,4 +53,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InstrumentPage;
+export default ChordsPage;
