@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {FlatList, StyleSheet, View, Text, Button, Image} from 'react-native';
+import {
+  FlatList,
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ChordCard from './ChordCard';
 import Modal from 'react-native-modal';
@@ -14,23 +22,31 @@ const ChordList = props => {
     setIsModalVisible(true);
   };
 
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleModalBackdropPress = () => {
+    console.log('backdrop was touched');
+    closeModal();
+  };
+
   return (
     <SafeAreaView style={styles.listOfChords}>
-      <Modal isVisible={isModalVisible}>
+      <Modal
+        isVisible={isModalVisible}
+        onBackdropPress={handleModalBackdropPress}>
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <View style={styles.card}>
+            <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
+              <Text style={{fontSize: 20}}>X</Text>
+            </TouchableOpacity>
             <Text style={styles.title}>{chordData.note}</Text>
             <Image
               source={chordData.imageSource}
               style={{
                 height: 300,
                 width: 300,
-              }}
-            />
-            <Button
-              title="Close Modal"
-              onPress={() => {
-                setIsModalVisible(false);
               }}
             />
           </View>
@@ -64,11 +80,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   card: {
-    // flex: 1,
     height: 500,
     backgroundColor: '#ffffff',
     borderRadius: 10,
-    // padding: 20,
     marginHorizontal: 10,
     marginBottom: 20,
     shadowColor: '#000000',
@@ -84,5 +98,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center',
   },
+  closeButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    padding: 5,
+    borderRadius: 15,
+    backgroundColor: '#ccc',
+  },
 });
+
 export default ChordList;
