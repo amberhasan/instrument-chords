@@ -26,20 +26,13 @@ const ChordList = props => {
     setIsModalVisible(false);
   };
 
-  const handleModalBackdropPress = () => {
-    console.log('backdrop was touched');
-    closeModal();
-  };
-
   return (
     <SafeAreaView style={styles.listOfChords}>
-      <Modal
-        isVisible={isModalVisible}
-        onBackdropPress={handleModalBackdropPress}>
+      <Modal isVisible={isModalVisible}>
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <View style={styles.card}>
             <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
-              <Text style={{fontSize: 20}}>X</Text>
+              <Text style={{fontSize: 20, color: '#000'}}>X</Text>
             </TouchableOpacity>
             <Text style={styles.title}>{chordData.note}</Text>
             <Image
@@ -49,6 +42,7 @@ const ChordList = props => {
                 width: 300,
               }}
             />
+            <Button title="Close Modal" onPress={closeModal} />
           </View>
         </View>
       </Modal>
@@ -104,7 +98,7 @@ const styles = StyleSheet.create({
     right: 10,
     padding: 5,
     borderRadius: 15,
-    backgroundColor: '#ccc',
+    // Remove background color
   },
 });
 
