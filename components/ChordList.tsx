@@ -28,22 +28,19 @@ const ChordList = props => {
 
   return (
     <SafeAreaView style={styles.listOfChords}>
-      <Modal isVisible={isModalVisible}>
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <View style={styles.card}>
-            <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
-              <Text style={{fontSize: 20, color: '#000'}}>X</Text>
-            </TouchableOpacity>
-            <Text style={styles.title}>{chordData.note}</Text>
-            <Image
-              source={chordData.imageSource}
-              style={{
-                height: 300,
-                width: 300,
-              }}
-            />
-            <Button title="Close Modal" onPress={closeModal} />
-          </View>
+      <Modal isVisible={isModalVisible} onBackdropPress={closeModal}>
+        <View style={styles.card}>
+          <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
+            <Text style={{fontSize: 20}}>X</Text>
+          </TouchableOpacity>
+          <Text style={styles.title}>{chordData.note}</Text>
+          <Image
+            source={chordData.imageSource}
+            style={{
+              height: 300,
+              width: 300,
+            }}
+          />
         </View>
       </Modal>
       <FlatList
@@ -74,9 +71,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   card: {
+    // flex: 1,
     height: 500,
     backgroundColor: '#ffffff',
     borderRadius: 10,
+    // padding: 20,
     marginHorizontal: 10,
     marginBottom: 20,
     shadowColor: '#000000',
@@ -98,7 +97,7 @@ const styles = StyleSheet.create({
     right: 10,
     padding: 5,
     borderRadius: 15,
-    // Remove background color
+    backgroundColor: '#ccc',
   },
 });
 
