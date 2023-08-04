@@ -1,14 +1,29 @@
 import * as React from 'react';
-import {View, Text, ScrollView, FlatList, StyleSheet} from 'react-native';
-import Button from '../components/Button';
-import ChordCard from '../components/ChordCard';
+import {StyleSheet} from 'react-native';
 import {SegmentedButtons} from 'react-native-paper';
-import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import ChordList from '../components/ChordList';
+import GestureRecognizer from 'react-native-swipe-detect';
+
+const BUTTONS = [
+  {
+    value: 'major',
+    label: 'Major Keys',
+  },
+  {
+    value: 'minor',
+    label: 'Minor Keys',
+  },
+  {value: 'seventh', label: '7th Keys'},
+];
+
+const CONFIG = {
+  velocityThreshold: 0.3,
+  directionalOffsetThreshold: 80,
+};
 
 function ChordsPage(props) {
   const chordData = props.route.params.chordData;
-  const instrumentType = props.route.params.instrumentType;
 
   const [value, setValue] = React.useState('major');
 
@@ -22,26 +37,39 @@ function ChordsPage(props) {
     }
   };
 
+  const onSwipeLeft = () => {
+    if (value === 'major') {
+      setValue('minor');
+    } else if (value === 'minor') {
+      setValue('seventh');
+    }
+  };
+  const onSwipeRight = () => {
+    if (value === 'minor') {
+      setValue('major');
+    } else if (value === 'seventh') {
+      setValue('minor');
+    }
+  };
+
   return (
-    <SafeAreaProvider style={{flex: 1}}>
-      <SegmentedButtons
-        style={styles.segmentedButtons}
-        value={value}
-        onValueChange={setValue}
-        buttons={[
-          {
-            value: 'major',
-            label: 'Major Keys',
-          },
-          {
-            value: 'minor',
-            label: 'Minor Keys',
-          },
-          {value: 'seventh', label: '7th Keys'},
-        ]}
-      />
-      {renderView()}
-    </SafeAreaProvider>
+    <GestureRecognizer
+      onSwipeLeft={onSwipeLeft}
+      onSwipeRight={onSwipeRight}
+      config={CONFIG}
+      style={{
+        flex: 1,
+      }}>
+      <SafeAreaProvider style={{flex: 1}}>
+        <SegmentedButtons
+          style={styles.segmentedButtons}
+          value={value}
+          onValueChange={setValue}
+          buttons={BUTTONS}
+        />
+        {renderView()}
+      </SafeAreaProvider>
+    </GestureRecognizer>
   );
 }
 
