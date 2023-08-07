@@ -1,18 +1,58 @@
-import React from 'react';
-import {FlatList, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {
+  FlatList,
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import InstrumentCard from './InstrumentCard';
+import ChordCard from './ChordCard';
+import Modal from 'react-native-modal';
 
 const ChordList = props => {
   const chordList = props.chordList;
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [chordData, setChordData] = useState({});
+
+  const onImagePress = data => {
+    setChordData(data);
+    setIsModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <SafeAreaView style={styles.listOfChords}>
+      <Modal isVisible={isModalVisible} onBackdropPress={closeModal}>
+        <View style={styles.card}>
+          <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
+            <Text style={{fontSize: 20}}>X</Text>
+          </TouchableOpacity>
+          <Text style={styles.title}>{chordData.note}</Text>
+          <Image
+            source={chordData.imageSource}
+            style={{
+              height: 300,
+              width: 300,
+            }}
+          />
+        </View>
+      </Modal>
       <FlatList
         contentContainerStyle={styles.contentContainer}
         style={styles.flatList}
         data={chordList}
         renderItem={({item}) => (
-          <InstrumentCard note={item.note} imageSource={item.image} />
+          <ChordCard
+            note={item.note}
+            imageSource={item.image}
+            onPress={onImagePress}
+          />
         )}
         horizontal={false}
         numColumns={2}
@@ -28,8 +68,37 @@ const styles = StyleSheet.create({
   flatList: {},
   contentContainer: {
     flexGrow: 1,
-
     marginTop: 10,
   },
+  card: {
+    // flex: 1,
+    height: 500,
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    // padding: 20,
+    marginHorizontal: 10,
+    marginBottom: 20,
+    shadowColor: '#000000',
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    padding: 5,
+    borderRadius: 15,
+    backgroundColor: '#ccc',
+  },
 });
+
 export default ChordList;

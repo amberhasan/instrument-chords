@@ -1,18 +1,20 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-interface InstrumentCardProps {
+interface ChordCardProps {
   note: string;
   imageSource: any;
+  onPress: () => any;
 }
 
-const InstrumentCard: React.FC<InstrumentCardProps> = ({note, imageSource}) => {
+const ChordCard: React.FC<ChordCardProps> = ({note, imageSource, onPress}) => {
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+      onPress={() => onPress({note, imageSource})}
+      style={styles.card}>
       <Text style={styles.title}>{note}</Text>
-
       <Image source={imageSource} style={styles.image} resizeMode="contain" />
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -46,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InstrumentCard;
+export default ChordCard;
