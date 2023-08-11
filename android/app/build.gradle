@@ -1,8 +1,9 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
 /**
- * This is the configuration block to customize your React Native Android app.
+ * This is the configuration block to customize your React Native Andrsoid app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
  */
 react {
@@ -78,8 +79,8 @@ android {
         applicationId "com.instrumentchords"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
     }
     signingConfigs {
         debug {
